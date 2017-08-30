@@ -1,0 +1,18 @@
+{
+  "name": "backbone_spring",
+  "version": "0.0.1",
+  "description": "Experimenting with Backbone",
+  "main": "index.js",
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "jquery": "^3.2.1",
+    "underscore": "^1.8.3",
+    "webpack": "^3.5.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TDK",
+  "license": "ISC"
+}
