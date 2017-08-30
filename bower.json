@@ -1,0 +1,21 @@
+{
+  "name": "Bus_Manager_Backbone",
+  "homepage": "https://github.com/thedikiy/Bus_Manager_Backbone",
+  "authors": [
+    "tdk <kamenevms96@gmail.com>"
+  ],
+  "description": "Transfer from jsp to Backbone",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "backbone": "^1.3.3"
+  }
+}
