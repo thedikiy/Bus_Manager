@@ -21,19 +21,33 @@ var BusView = Backbone.View.extend({
 		this.template = _.template($('.bus-list-template').html());
 	},
 	events: {
-		'click .edit-bus': 'edit'
+		'click .edit-bus': 'edit',
+		'click .update-bus': 'update',
+		'click .cancel': 'cancel',
+		'click .delete-bus': 'delete'
 	},
 	edit: function(){
 		$('.edit-bus').hide();
 		$('.delete-bus').hide();
-		$('.update-bus').show();
-		$('.cancel').show();
+		this.$('.update-bus').show();
+		this.$('.cancel').show();
 
 		var busModel = this.$('.bus-model').html(),
 			registrationNumber = this.$('.registration-number').html();
 
 		this.$('.bus-model').html('<input type="text" class = "form-control bus-model-update" value = "'+ busModel+'">' );
-		this.$('.registration-number').html('<input type="text" class = "form-control bus-model-update" value = "'+ registrationNumber+'">' );
+		this.$('.registration-number').html('<input type="text" class = "form-control registration-number-update" value = "'+ registrationNumber+'">' );
+	},
+	update: function(){
+		var busModel = $('.bus-model-update').val(), 
+			registrationNumber = $('.registration-number-update').val();
+		this.model.set({busModel: busModel, registrationNumber: registrationNumber});
+	},
+	cancel: function(){
+		busesView.render();
+	},
+	delete: function(){
+		this.model.destroy();
 	},
 	render: function(){
 		this.$el.html(this.template(this.model.toJSON()));
@@ -47,6 +61,8 @@ var BusesView = Backbone.View.extend({
 	initialize: function() {
 		var self = this;
 		this.model.on('add', this.render, this);
+		this.model.on('change', this.render, this);
+		this.model.on('remove',this.render, this);
 	},
 	render: function() {
 		var self = this;
