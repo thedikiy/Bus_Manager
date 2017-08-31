@@ -8,7 +8,9 @@ var Bus = Backbone.Model.extend({
 
 
 // Bus Collection
-var Buses = Backbone.Collection.extend({});
+var Buses = Backbone.Collection.extend({
+  url: "http://localhost:8080/api/buses"
+});
 
 var buses = new Buses();
 
@@ -42,6 +44,7 @@ var BusView = Backbone.View.extend({
 		var busModel = $('.bus-model-update').val(), 
 			registrationNumber = $('.registration-number-update').val();
 		this.model.set({busModel: busModel, registrationNumber: registrationNumber});
+		this.model.save();
 	},
 	cancel: function(){
 		busesView.render();
@@ -63,6 +66,8 @@ var BusesView = Backbone.View.extend({
 		this.model.on('add', this.render, this);
 		this.model.on('change', this.render, this);
 		this.model.on('remove',this.render, this);
+
+		this.model.fetch();
 	},
 	render: function() {
 		var self = this;
@@ -83,8 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			registrationNumber: $('.registration-number-input').val()
 		});
 		$('.bus-model-input, .registration-number-input').val('');
-	
-		console.log(bus.toJSON());
 		buses.add(bus);
+	  bus.save();
 	})
 });
