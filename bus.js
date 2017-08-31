@@ -20,6 +20,21 @@ var BusView = Backbone.View.extend({
 	initialize: function(){
 		this.template = _.template($('.bus-list-template').html());
 	},
+	events: {
+		'click .edit-bus': 'edit'
+	},
+	edit: function(){
+		$('.edit-bus').hide();
+		$('.delete-bus').hide();
+		$('.update-bus').show();
+		$('.cancel').show();
+
+		var busModel = this.$('.bus-model').html(),
+			registrationNumber = this.$('.registration-number').html();
+
+		this.$('.bus-model').html('<input type="text" class = "form-control bus-model-update" value = "'+ busModel+'">' );
+		this.$('.registration-number').html('<input type="text" class = "form-control bus-model-update" value = "'+ registrationNumber+'">' );
+	},
 	render: function(){
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
@@ -30,6 +45,7 @@ var BusesView = Backbone.View.extend({
 	model: buses,
 	el: $('.bus-list'),
 	initialize: function() {
+		var self = this;
 		this.model.on('add', this.render, this);
 	},
 	render: function() {
@@ -51,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			registrationNumber: $('.registration-number-input').val()
 		});
 		$('.bus-model-input, .registration-number-input').val('');
+	
 		console.log(bus.toJSON());
 		buses.add(bus);
 	})
