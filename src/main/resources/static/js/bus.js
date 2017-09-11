@@ -9,7 +9,7 @@ var Bus = Backbone.Model.extend({
 
 // Bus Collection
 var Buses = Backbone.Collection.extend({
-  url: "http://localhost:8080/api/buses"
+  url: "https://fa2b28bb.ngrok.io/api/buses"
 });
 
 var buses = new Buses();
