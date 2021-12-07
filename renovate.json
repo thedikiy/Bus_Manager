@@ -1,0 +1,37 @@
+{
+      "extends": [
+        "docker:enableMajor",
+        "default:pinDigestsDisabled"
+      ],
+      "enabledManagers": [
+        "dockerfile",
+        "maven",
+        "gradle"
+      ],
+      "packageRules": [
+        {
+          "matchPackagePatterns": ["*"],
+          "enabled": false
+        },
+        {
+          "matchDatasources": [
+            "docker"
+          ],
+          "matchPackagePatterns": [
+            "^docker\\.atl-paas\\.net\\/sox\\/micros-java-\\d+"
+          ],
+          "automerge": true,
+          "automergeType": "branch",
+          "enabled": true
+        },
+        {
+          "matchPackageNames": [
+            "com.atlassian.cst:cst-build-tasks"
+          ],
+          "allowedVersions": "(,0.0.63]",
+          "automerge": true,
+          "automergeType": "branch",
+          "enabled": true
+        }
+      ]
+    }
