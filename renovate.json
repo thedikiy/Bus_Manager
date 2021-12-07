@@ -13,16 +13,14 @@
           "matchPackagePatterns": ["*"],
           "enabled": false
         },
-        {
-          "matchDatasources": [
-            "docker"
-          ],
-          "matchPackagePatterns": [
-            "^docker\\.atl-paas\\.net\\/sox\\/micros-java-\\d+"
+         {
+          "matchPackageNames": [
+            "org.webjars.bowert:backbone"
           ],
           "automerge": true,
           "automergeType": "branch",
-          "enabled": true
-        }
+          "enabled": "true"
+         }
+            
       ]
     }
