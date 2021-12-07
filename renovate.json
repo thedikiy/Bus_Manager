@@ -23,15 +23,6 @@
           "automerge": true,
           "automergeType": "branch",
           "enabled": true
-        },
-        {
-          "matchPackageNames": [
-            "com.atlassian.cst:cst-build-tasks"
-          ],
-          "allowedVersions": "(,0.0.63]",
-          "automerge": true,
-          "automergeType": "branch",
-          "enabled": true
         }
       ]
     }
