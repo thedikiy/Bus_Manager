@@ -1,7 +1,6 @@
 {
       "extends": [
-        "docker:enableMajor",
-        "default:pinDigestsDisabled"
+        "config:base"
       ],
       "enabledManagers": [
         "dockerfile",
